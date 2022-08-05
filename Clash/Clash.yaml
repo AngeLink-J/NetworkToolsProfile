@@ -1,5 +1,5 @@
 # 参考Clash小白配置 制作by Orz-3 修改 原作者TG频道：https://t.me/Orzmini 
-# 2022/7/29更新
+# 2022/08/05更新
 
 mixed-port: 7890
 
@@ -57,13 +57,13 @@ proxy-providers:
 
   Proxy:
     type: http
-    url: "https://订阅链接nodelist"
-    interval: 3600
+    url: "订阅链接"
+    interval: 86400
     path: ./ProxyList.yaml
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
 
   HK:
     filter: 港|HK|(?i)Hong
@@ -72,7 +72,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
 
   TW:
     filter: 台|TW|(?i)Taiwan
@@ -81,7 +81,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
 
   SG:
     filter: 新|狮|獅|SG|(?i)Singapore
@@ -90,7 +90,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
 
   JP:
     filter: 日|JP|(?i)Japan
@@ -99,7 +99,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
 
   US:
     filter: 美|US|(?i)States|American
@@ -108,7 +108,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: http://www.gstatic.com/generate_204
+      url: http://cp.cloudflare.com/generate_204
 
 proxy-groups:
 
@@ -132,6 +132,7 @@ proxy-groups:
   - name: "国际媒体"
     type: select
     proxies:
+      - 全球加速
       - 香港节点
       - 台湾节点
       - 狮城节点
@@ -141,6 +142,7 @@ proxy-groups:
   - name: "电报代理"
     type: select
     proxies:
+      - 全球加速
       - 香港节点
       - 狮城节点
       - DIRECT
@@ -155,36 +157,26 @@ proxy-groups:
     type: select
     use:
       - HK
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
 
   - name: "台湾节点"
     type: select
     use:
       - TW
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
 
   - name: "狮城节点"
     type: select
     use:
       - SG
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
 
   - name: "日本节点"
     type: select
     use:
       - JP
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
 
   - name: "美国节点"
     type: select
     use:
       - US
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
 
   - name: "手动选择"
     type: select
